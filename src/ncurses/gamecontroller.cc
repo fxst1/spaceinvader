@@ -24,7 +24,7 @@ std::string         engine::NCursesGameController::getTexturePath() const {
 }
 
 engine::Texture*    engine::NCursesGameController::allocTexture(std::string const & name, std::string const & path) {
-    this->_textures[name] = AsciiTexture::loadFromFile(this->getTexturePath() + path);
+    this->_textures[name] = AsciiTexture::loadFromFile(this->getTexturePath() + path + ".ascii");
     return (this->_textures[name]);
 }
 

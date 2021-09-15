@@ -11,7 +11,7 @@ Game::Game(void):
 	this->allocTexture("bullet", "bullet");
 	this->allocTexture("bullet2", "bullet2");
 	this->allocTexture("star", "star");
-	this->allocTexture("explosion", "sheet");
+	this->allocTexture("explosion", "explosion");
 	this->allocTexture("spider", "enemy");
 
 	this->allocTexture("player_shield", "shield");
