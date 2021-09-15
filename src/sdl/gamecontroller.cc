@@ -28,7 +28,7 @@ engine::SdlGameController::SdlGameController(int width, int height, int fps):
 engine::SdlGameController::~SdlGameController(void){}
 
 std::string         engine::SdlGameController::getTexturePath() const {
-    return ("/textures/images/");
+    return ("textures/images/");
 }
 
 engine::Texture*    engine::SdlGameController::allocTexture(std::string const & name, std::string const & path) {
