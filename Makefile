@@ -7,8 +7,8 @@ FLAGS=-Wall -Wextra -Werror -g #-D SDL_ENGINE
 
 OBJDIR := ./obj/
 
-DRV_SDL = $(filter %.$(FILEEXT), $(shell find ./src/sdl -type f)
-DRV_NCURSES = $(filter %.$(FILEEXT), $(shell find ./src/ncurses -type f)
+DRV_SDL = $(filter %.$(FILEEXT), $(shell find ./src/sdl -type f))
+DRV_NCURSES = $(filter %.$(FILEEXT), $(shell find ./src/ncurses -type f))
 SRC_GAME := $(filter-out $(DRV_SDL) $(DRV_NCURSES) , $(filter %.$(FILEEXT), $(shell find ./src -type f)))
 OBJ = $(addprefix $(OBJDIR),$(SRC:.$(FILEEXT)=.o))
 TARGET = spaceinv
