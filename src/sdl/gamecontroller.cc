@@ -27,6 +27,11 @@ engine::SdlGameController::SdlGameController(int width, int height, int fps):
 }
 engine::SdlGameController::~SdlGameController(void){}
 
+engine::Texture*    SdlGameController::allocTexture(std::string const & name, std::string const & path) {
+    this->_texture[name] = AsciiTexture::loadFromFile(path);
+    return (this->_texture[name]);
+}
+
 void	engine::SdlGameController::loop(void) {
 
 	std::uint32_t	minimum_fps_delta_time = 1000 / this->_fps;

@@ -19,6 +19,11 @@ engine::NCursesGameController::NCursesGameController(int width, int height, int 
 }
 engine::NCursesGameController::~NCursesGameController(void){}
 
+engine::Texture*    NCursesGameController::allocTexture(std::string const & name, std::string const & path) {
+    this->_texture[name] = AsciiTexture::loadFromFile(path);
+    return (this->_texture[name]);
+}
+
 void	engine::NCursesGameController::loop(void) {
 
 	//std::uint32_t	minimum_fps_delta_time = 1000 / this->_fps;

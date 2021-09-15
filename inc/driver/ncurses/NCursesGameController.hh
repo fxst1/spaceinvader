@@ -26,6 +26,8 @@ namespace	engine {
 			virtual void	onPreRender(void);
 			virtual void	onPostRender(void);
 
+
+            virtual engine::Texture     *allocTexture(std::string const &name, std::string const &path);
 	};
 };
 

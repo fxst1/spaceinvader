@@ -91,6 +91,8 @@ namespace	engine {
 
 			virtual void		onStart(void) = 0;
 			virtual void		onStop(void) = 0;
+
+			virtual engine::Texture*    allocTexture(std::string const &name, std::string const &path) = 0;
 	};
 };
 

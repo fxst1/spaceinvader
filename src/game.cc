@@ -6,20 +6,20 @@ Game::Game(void):
 	_oldscene(),
 	_current_wave(nullptr)
 {
-	this->_textures["background"] = new engine::platformTexture("textures/images/bg5.png", _renderer);
-	this->_textures["spaceship"] = new engine::platformTexture("textures/images/DurrrSpaceShip.png", _renderer);
-	this->_textures["bullet"] = new engine::platformTexture("textures/images/bullet.png", _renderer);
-	this->_textures["bullet2"] = new engine::platformTexture("textures/images/bullet2.png", _renderer);
-	this->_textures["star"] = new engine::platformTexture("textures/images/star.png", _renderer);
-	this->_textures["explosion"] = new engine::platformTexture("textures/images/explosion/sheet.png", _renderer);
-	this->_textures["spider"] = new engine::platformTexture("textures/images/enemy.png", _renderer);
+	this->allocTexture("background", "textures/images/bg5.png");
+	this->allocTexture("spaceship", "textures/images/DurrrSpaceShip.png");
+	this->allocTexture("bullet", "textures/images/bullet.png");
+	this->allocTexture("bullet2", "textures/images/bullet2.png");
+	this->allocTexture("star", "textures/images/star.png");
+	this->allocTexture("explosion", "textures/images/explosion/sheet.png");
+	this->allocTexture("spider", "textures/images/enemy.png");
 
-	this->_textures["player_shield"] = new engine::platformTexture("textures/images/shield.png", _renderer);
+	this->allocTexture("player_shield", "textures/images/shield.png");
 
-	this->_textures["pv_bar"] = new engine::platformTexture("textures/images/hud/bar1.png", _renderer);
-	this->_textures["pv_bar_color"] = new engine::platformTexture("textures/images/hud/pv.png", _renderer);
-	this->_textures["shield_bar"] = new engine::platformTexture("textures/images/hud/bar2.png", _renderer);
-	this->_textures["shield_bar_color"] = new engine::platformTexture("textures/images/hud/shield.png", _renderer);
+	this->allocTexture("pv_bar", "textures/images/hud/bar1.png");
+	this->allocTexture("pv_bar_color", "textures/images/hud/pv.png");
+	this->allocTexture("shield_bar", "textures/images/hud/bar2.png");
+	this->allocTexture("shield_bar_color", "textures/images/hud/shield.png");
 
 	this->_hud = new Hud(this);
 }
