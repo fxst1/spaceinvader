@@ -119,7 +119,6 @@ void		SpaceShip::tick(engine::Engine & e) {
 
 	_use_shield = false;
 
-	const std::uint8_t*	keyboard_state_array = SDL_GetKeyboardState(NULL);
 
 /*
 	SDL_Event			event;
@@ -129,6 +128,10 @@ void		SpaceShip::tick(engine::Engine & e) {
 		g->stop();
 	}
 */
+#ifdef SDL_ENGINE
+
+	const std::uint8_t*	keyboard_state_array = SDL_GetKeyboardState(NULL);
+
 	if (keyboard_state_array[SDL_SCANCODE_UP] && !(keyboard_state_array[SDL_SCANCODE_DOWN]))
 		this->moveRel(0, -0.9 * e._delta_time);
 	else if (!keyboard_state_array[SDL_SCANCODE_UP] && keyboard_state_array[SDL_SCANCODE_DOWN])
@@ -158,7 +161,42 @@ void		SpaceShip::tick(engine::Engine & e) {
 		}
 
 	}
+#else
 
+    int c = getch();
+
+	if (c == KEY_UP)
+		this->moveRel(0, -0.9 * e._delta_time);
+	else if (c == KEY_DOWN)
+		this->moveRel(0, 0.9 * e._delta_time);
+
+	if (c == KEY_RIGHT)
+		this->moveRel(0.9 * e._delta_time, 0);
+	else if (c == KEY_LEFT)
+		this->moveRel(-0.9 * e._delta_time, 0);
+
+	if (c == ' ') {
+		if (_last_shoot <= 0) {
+			Factory f(e, this);
+
+			PlayerBullet*	bullet = f.spaceshipBullet(
+				this, 1.0, 0
+			);
+			e.addEntity( bullet );
+			_last_shoot = 200;
+		}
+	}
+	else if (c == 'a') {
+
+		if (_energy > 0) {
+			_use_shield = true;
+			_energy -= e._delta_time;
+		}
+
+	}
+
+
+#endif
 	if (_energy <= 0 && _shield_recovery <= 0) {
 		_shield_recovery = 500;
 	}
