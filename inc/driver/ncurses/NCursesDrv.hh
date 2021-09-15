@@ -7,7 +7,7 @@
 
 namespace engine {
     typedef engine::NCursesGameController platformGameController;
-    typedef engine::AsciiTexture platformTexture;
+    typedef AsciiTexture platformTexture;
 };
 
 #endif
