@@ -23,7 +23,7 @@ Game*			Factory::getGame(engine::GameController* gc) {
 
 PlayerBullet*			Factory::spaceshipBullet(engine::Entity * parent, double x_dir, double y_dir) {
 	PlayerBullet*		b = new PlayerBullet(*_parent, x_dir, y_dir);
-	b->setTexture(_game->_textures["bullet"]);
+	b->setTexture(_game->getTexture("bullet"));
 	b->setZ(1);
 	b->resize( b->getTexture()->getW(), b->getTexture()->getH() );
 	b->center(*parent);
@@ -32,7 +32,7 @@ PlayerBullet*			Factory::spaceshipBullet(engine::Entity * parent, double x_dir, 
 
 EnemyBullet*			Factory::enemyBullet(engine::Entity * parent, double x_dir, double y_dir) {
 	EnemyBullet*		b = new EnemyBullet(*_parent, -x_dir, y_dir);
-	b->setTexture(_game->_textures["bullet2"]);
+	b->setTexture(_game->getTexture("bullet2"));
 	b->setZ(1);
 	b->resize( b->getTexture()->getW(), b->getTexture()->getH() );
 	b->center(*parent);

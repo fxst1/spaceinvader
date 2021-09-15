@@ -63,7 +63,7 @@ void 		Wave1_2::populate(engine::Engine & e, Game &g) {
 	for (std::size_t i = 0; i < _n_ennemies; i++) {
 
 		Wave::EnemyShip*	en = new Wave::EnemyShip(this, new MoveFunc_Wave1_2());
-		en->setTexture( g._textures["spider"] );
+		en->setTexture( g.getTexture("spider") );
 		en->resize(
 			en->getTexture()->getW(),
 			en->getTexture()->getH()

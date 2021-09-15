@@ -7,12 +7,12 @@ Hud::Hud(Game *g):
 	_max_shield(100),
 	_shield(100)
 {
-	_bar_pv_container = g->_textures["pv_bar"];
-	_bar_pv_fill = g->_textures["pv_bar_color"];
-	_bar_shield_container = g->_textures["shield_bar"];
-	_bar_shield_fill = g->_textures["shield_bar_color"];
-	_score_text = g->_textures["score_text"];
-	_weapon_textures["weapon-bullet"] = g->_textures["bullet"];
+	_bar_pv_container = g->getTexture("pv_bar");
+	_bar_pv_fill = g->getTexture("pv_bar_color");
+	_bar_shield_container = g->getTexture("shield_bar");
+	_bar_shield_fill = g->getTexture("shield_bar_color");
+	_score_text = g->getTexture("score_text");
+	_weapon_textures["weapon-bullet"] = g->getTexture("bullet");
 }
 Hud::~Hud(void) {}
 

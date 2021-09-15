@@ -139,7 +139,7 @@ void	Wave::populate(engine::Engine & e, Game &g) {
 	for (std::size_t i = 0; i < _n_ennemies; i++) {
 
 		Wave::EnemyShip*	en = new Wave::EnemyShip(this);
-		en->setTexture( g._textures["spider"] );
+		en->setTexture( g.getTexture("spider") );
 		en->resize(en->getTexture()->getW(), en->getTexture()->getH());
 		en->setZ(1);
 		if (prev_en == nullptr) {
