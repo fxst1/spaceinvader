@@ -1,6 +1,5 @@
 #ifndef ENGINE_ASCIITEXTURE_HH
 # define ENGINE_ASCIITEXTURE_HH
-# ifdef MY_NCURSES_ENGINE
 #  include <ncurses.h>
 #  include "engine/box.hh"
 #  include <string>
@@ -72,5 +71,4 @@ class	CompositeAsciiTexture : public engine::Texture {
 		int							_height;
 };
 
-# endif
 #endif
