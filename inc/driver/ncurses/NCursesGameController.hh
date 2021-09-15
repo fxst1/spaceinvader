@@ -2,8 +2,8 @@
 # define ENGINE_GC_HH
 
 # include <ncurses.h>
-# include "driver/ncurses/ascii.hh"
 # include "engine/engine.hh"
+# include "driver/ncurses/ascii.hh"
 
 namespace	engine {
 	class	NCursesGameController: public GameController {
