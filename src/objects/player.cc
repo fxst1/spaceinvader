@@ -163,7 +163,12 @@ void		SpaceShip::tick(engine::Engine & e) {
 	}
 #else
 
-    int c = getch();
+  //  keypad(stdscr, TRUE);
+   int c = getch();
+
+//	std::cout << "Test " << std::dec << KEY_UP << std::endl;
+//	std::cout << "Test " << std::dec << (int)' ' << std::endl;
+//	std::cout << "Test " << std::dec << c << std::endl;
 
 	if (c == KEY_UP)
 		this->moveRel(0, -0.9 * e._delta_time);
@@ -195,7 +200,7 @@ void		SpaceShip::tick(engine::Engine & e) {
 
 	}
 
-
+//	keypad(stdscr, FALSE);
 #endif
 	if (_energy <= 0 && _shield_recovery <= 0) {
 		_shield_recovery = 500;
@@ -204,6 +209,7 @@ void		SpaceShip::tick(engine::Engine & e) {
 	g->getHud()->updateShield( _energy );
 
 	_player_texture->useShield(_use_shield);
+
 }
 
 

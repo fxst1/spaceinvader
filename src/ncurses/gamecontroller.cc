@@ -1,4 +1,6 @@
 #include "driver/ncurses/NCursesGameController.hh"
+#include <ctime>
+#include <unistd.h>
 
 engine::NCursesGameController::NCursesGameController(int width, int height, int fps):
 	engine::GameController(),
@@ -6,13 +8,18 @@ engine::NCursesGameController::NCursesGameController(int width, int height, int 
 	_height(height),
 	_fps(fps)
 {
-    _window = newwin(height, width, 0, 0);
-    box(_window, 0, 0);
-    wrefresh(_window);
+	
+
+	getmaxyx(stdscr, height, width);
+
+    _window = stdscr;//newwin(height, width, 0, 0);
+    //box(_window, 0, 0);
+    refresh();
+
+	//getmaxyx(stdscr, height, width);
 
 	this->_engine.getScene().move(0, 0);
 	this->_engine.getCamera().move(0, 0);
-
 	this->_engine.getScene().resize(width + 1, height + 1);
 	this->_engine.getCamera().resize(width, height);
 
@@ -30,41 +37,36 @@ engine::Texture*    engine::NCursesGameController::allocTexture(std::string cons
 
 void	engine::NCursesGameController::loop(void) {
 
-	//std::uint32_t	minimum_fps_delta_time = 1000 / this->_fps;
-	//std::uint32_t	last_game_step = SDL_GetTicks();
+//	struct timespec sleep_time;
+
+	std::time_t	minimum_fps_delta_time = 1000 / this->_fps;
+	std::time_t	last_game_step = std::time(0); //SDL_GetTicks();
 
 	while (this->isRunning()) {
 
-        this->tick();
-        wrefresh(_window);
+		//_engine._delta_time = 1;
+        	this->tick();
 
-/*
-		std::uint32_t	now = SDL_GetTicks();
-		if ((int)last_game_step <= (int)now) { // | vsync_enabled
+		std::time_t	now = std::time(0); //struct timespec now;
+		if (last_game_step <= now) {
+			std::time_t delta_time = now - last_game_step;
+			if (delta_time > minimum_fps_delta_time)
+				delta_time = minimum_fps_delta_time;
 
-			std::uint32_t	delta_time = now - last_game_step;
-			if (delta_time > minimum_fps_delta_time) {
-				delta_time = minimum_fps_delta_time; // slow down if the computer is too slow
-			}
+			_engine._delta_time = delta_time <= 1 ? 1 : delta_time;
 
-			_engine._delta_time = delta_time;
-
-			SDL_Event	event;
-			if (SDL_PollEvent(&event)) {
-				if (event.type == SDL_QUIT) {
-					this->stop();
-					break ;
-				}
+			int c = getch();
+			if (c == '\n') {
+				this->stop();
+				break;
 			}
 
 			this->tick();
 
 			last_game_step = now;
 		} else {
-			SDL_Delay(1);
+			usleep(1000);
 		}
-
-		*/
 	}
 }
 
@@ -76,8 +78,8 @@ int			engine::NCursesGameController::getHeight(void) const {
 }
 
 void		engine::NCursesGameController::onPreRender(void) {
-	werase(this->_window);
+	erase();
 }
 void		engine::NCursesGameController::onPostRender(void) {
-	wrefresh(this->_window);
+	refresh();
 }

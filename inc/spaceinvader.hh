@@ -1,7 +1,14 @@
 #ifndef SPACEINVADER_HH
 # define SPACEINVADER_HH
-# define WIDTH 1200
-# define HEIGHT 800
+
+# ifdef SDL_ENGINE
+#  define WIDTH 1200
+#  define HEIGHT 800
+# else
+#  include <ncurses.h>
+#  define WIDTH COLS
+#  define HEIGHT LINES
+#endif
 
 # include <stack>
 # include <map>
