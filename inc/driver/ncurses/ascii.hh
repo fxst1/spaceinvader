@@ -45,7 +45,7 @@ class	AsciiTexture: public engine::Texture {
 		~AsciiTexture(void);
 
 		static AsciiTexture*	loadFromFile(std::string const &filename);
-		void 		render(engine::Box const &src) const;
+		void 		render(engine::Box const &src) ;
 
 		void		setMap(AsciiTexture::ColorMap &map);
 

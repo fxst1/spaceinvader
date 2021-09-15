@@ -104,7 +104,7 @@ void		AsciiTexture::setMap(AsciiTexture::ColorMap &map) {
 }
 
 
-void		AsciiTexture::render(engine::Box const &src) const {
+void		AsciiTexture::render(engine::Box const &src) {
 	AsciiTexture::pix_t		*p = this->_buf;
 
 	for (std::size_t y = 0; y < (std::size_t)this->_h; y++) {
