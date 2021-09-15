@@ -20,8 +20,8 @@ engine::NCursesGameController::NCursesGameController(int width, int height, int 
 engine::NCursesGameController::~NCursesGameController(void){}
 
 engine::Texture*    engine::NCursesGameController::allocTexture(std::string const & name, std::string const & path) {
-    this->_texture[name] = AsciiTexture::loadFromFile(path);
-    return (this->_texture[name]);
+    this->_textures[name] = AsciiTexture::loadFromFile(path);
+    return (this->_textures[name]);
 }
 
 void	engine::NCursesGameController::loop(void) {
