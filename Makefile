@@ -1,7 +1,7 @@
 CC=g++ --std=c++14
 FILEEXT = cc
 INC = -I ./inc/
-FLAGS=-Wall -Wextra -Werror -g -D SDL_ENGINE
+FLAGS=-Wall -Wextra -Werror -g #-D SDL_ENGINE
 OBJDIR := ./obj/
 SRC := $(filter %.$(FILEEXT), $(shell find ./src -type f))
 OBJ = $(addprefix $(OBJDIR),$(SRC:.$(FILEEXT)=.o))
