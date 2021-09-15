@@ -5,4 +5,6 @@
 # include <SDL2/SDL_image.h>
 # include "driver/SDL/ImgTexture.hh"
 # include "driver/SDL/SdlGameController.hh"
+using engine::platformGameController = engine::SdlGameController;
+using engine::platformTexture = engine::SdlTexture;
 #endif
