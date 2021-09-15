@@ -13,8 +13,8 @@ namespace	engine {
 
 		public:
 
-			SdlGameController(int width, int height, int fps = 60);
-			~SdlGameController(void);
+			NCursesGameController(int width, int height, int fps = 60);
+			~NCursesGameController(void);
 
 			int				getWidth(void) const;
 			int				getHeight(void) const;
