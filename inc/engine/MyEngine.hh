@@ -8,8 +8,10 @@
 
 # ifdef SDL_ENGINE
 #  include "driver/SDL/SdlDrv.hh"
+using engine::platformGameController = engine::SdlGameController;
 # else
 #  include "driver/ncurses/NCursesDrv.hh"
+using engine::platformGameController = engine::SdlGameController;
 # endif
 
 #endif
