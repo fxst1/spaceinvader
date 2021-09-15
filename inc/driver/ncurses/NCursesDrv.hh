@@ -3,6 +3,7 @@
 # define MY_NCURSES_ENGINE
 # include <ncurses.h>
 # include "driver/ncurses/ascii.hh"
+# include "driver/ncurses/NCursesGameController.hh"
 
 namespace engine {
     typedef engine::NCursesGameController platformGameController;
