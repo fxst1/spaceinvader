@@ -2,6 +2,7 @@
 # define ENGINE_GC_HH
 
 # include <ncurses.h>
+# include "driver/ncurses/ascii.hh"
 # include "engine/engine.hh"
 
 namespace	engine {
