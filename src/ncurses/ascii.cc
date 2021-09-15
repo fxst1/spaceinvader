@@ -1,5 +1,6 @@
 #include "driver/ncurses/ascii.hh"
-#  include <vector>
+#include <iostream>
+#include <vector>
 
 AsciiTexture::AsciiTexture(void):
 	engine::Texture(),
@@ -15,6 +16,8 @@ AsciiTexture::~AsciiTexture(void)
 AsciiTexture*		AsciiTexture::loadFromFile(std::string const &filename) {
 	std::ifstream	input(filename);
 	AsciiTexture* ret = new AsciiTexture();
+
+    std::cout << "TEXTURE: " << filename << std::endl;
 
 	if (input.is_open()) {
 
