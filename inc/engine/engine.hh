@@ -94,7 +94,7 @@ namespace	engine {
 
 			virtual engine::Texture*    allocTexture(std::string const &name, std::string const &path) = 0;
             virtual std::string         getTexturePath(void) const = 0;
-            engine::Texture*    engine::GameController::getTexture(std::string const & name);
+            engine::Texture*            getTexture(std::string const & name);
 	};
 };
 

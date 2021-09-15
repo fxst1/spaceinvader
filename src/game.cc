@@ -165,7 +165,7 @@ ExplosionEntity::ExplosionEntity(Game *g, engine::Box const & parent):
 	engine::Entity(),
 	_animation(nullptr)
 {
-	_animation = new Explosion(g->_textures["explosion"]);
+	_animation = new Explosion(g->getTexture("explosion"));
 	this->setTexture( _animation );
 
 	this->setW(128);
