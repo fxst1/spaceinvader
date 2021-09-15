@@ -20,9 +20,12 @@ int		main(int ac, char **av) {
 		g.mainloop();
 	}
 
+#ifdef SDL_ENGINE
 	IMG_Quit();
 	SDL_Quit();
-
+#else
+    endwin();
+#endif
 	return (0);
 	(void)ac;
 	(void)av;
