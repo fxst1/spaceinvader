@@ -17,8 +17,6 @@ AsciiTexture*		AsciiTexture::loadFromFile(std::string const &filename) {
 	std::ifstream	input(filename);
 	AsciiTexture* ret = new AsciiTexture();
 
-    std::cout << "TEXTURE: " << filename << ":" << input.is_open() << std::endl;
-
 	if (input.is_open()) {
 
 		char					c = 0;

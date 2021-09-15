@@ -31,7 +31,7 @@ class	Game: public engine::platformGameController {
 		Game(void);
 		~Game(void);
 
-		std::map<std::string, engine::Texture*>	_textures;
+//		std::map<std::string, engine::Texture*>	_textures;
 		std::stack<Wave*>						_waves;
 		Wave*									_current_wave;
 

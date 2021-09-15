@@ -36,3 +36,7 @@ void 	engine::GameController::mainloop(void) {
 
 	this->stop();
 }
+
+engine::Texture*    engine::GameController::getTexture(std::string const & name) {
+    return (this->_textures[name]);
+}
