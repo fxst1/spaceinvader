@@ -10,7 +10,6 @@
 #  include "driver/SDL/SdlDrv.hh"
 # else
 #  include "driver/ncurses/NCursesDrv.hh"
-using engine::platformGameController = engine::SdlGameController;
 # endif
 
 #endif

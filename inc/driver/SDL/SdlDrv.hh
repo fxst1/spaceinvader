@@ -5,6 +5,8 @@
 # include <SDL2/SDL_image.h>
 # include "driver/SDL/ImgTexture.hh"
 # include "driver/SDL/SdlGameController.hh"
-using engine::platformGameController = engine::SdlGameController;
-using engine::platformTexture = engine::SdlTexture;
+namespace engine {
+    typedef engine::SdlGameController engine::platformGameController;
+    typedef engine::SdlTexture engine::platformTexture;
+};
 #endif
