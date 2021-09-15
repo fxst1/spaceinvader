@@ -12,7 +12,7 @@
 class	Hud;
 class	Wave;
 
-class	Game: public engine::SdlGameController {
+class	Game: public engine::platformGameController {
 	private:
 
 		Hud*						_hud;

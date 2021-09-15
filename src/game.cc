@@ -2,24 +2,24 @@
 #include "gameobjects.hh"
 
 Game::Game(void):
-	engine::SdlGameController(WIDTH, HEIGHT),
+	engine::platformGameController(WIDTH, HEIGHT),
 	_oldscene(),
 	_current_wave(nullptr)
 {
-	this->_textures["background"] = new engine::SdlTexture("textures/images/bg5.png", _renderer);
-	this->_textures["spaceship"] = new engine::SdlTexture("textures/images/DurrrSpaceShip.png", _renderer);
-	this->_textures["bullet"] = new engine::SdlTexture("textures/images/bullet.png", _renderer);
-	this->_textures["bullet2"] = new engine::SdlTexture("textures/images/bullet2.png", _renderer);
-	this->_textures["star"] = new engine::SdlTexture("textures/images/star.png", _renderer);
-	this->_textures["explosion"] = new engine::SdlTexture("textures/images/explosion/sheet.png", _renderer);
-	this->_textures["spider"] = new engine::SdlTexture("textures/images/enemy.png", _renderer);
+	this->_textures["background"] = new engine::platformTexture("textures/images/bg5.png", _renderer);
+	this->_textures["spaceship"] = new engine::platformTexture("textures/images/DurrrSpaceShip.png", _renderer);
+	this->_textures["bullet"] = new engine::platformTexture("textures/images/bullet.png", _renderer);
+	this->_textures["bullet2"] = new engine::platformTexture("textures/images/bullet2.png", _renderer);
+	this->_textures["star"] = new engine::platformTexture("textures/images/star.png", _renderer);
+	this->_textures["explosion"] = new engine::platformTexture("textures/images/explosion/sheet.png", _renderer);
+	this->_textures["spider"] = new engine::platformTexture("textures/images/enemy.png", _renderer);
 
-	this->_textures["player_shield"] = new engine::SdlTexture("textures/images/shield.png", _renderer);
+	this->_textures["player_shield"] = new engine::platformTexture("textures/images/shield.png", _renderer);
 
-	this->_textures["pv_bar"] = new engine::SdlTexture("textures/images/hud/bar1.png", _renderer);
-	this->_textures["pv_bar_color"] = new engine::SdlTexture("textures/images/hud/pv.png", _renderer);
-	this->_textures["shield_bar"] = new engine::SdlTexture("textures/images/hud/bar2.png", _renderer);
-	this->_textures["shield_bar_color"] = new engine::SdlTexture("textures/images/hud/shield.png", _renderer);
+	this->_textures["pv_bar"] = new engine::platformTexture("textures/images/hud/bar1.png", _renderer);
+	this->_textures["pv_bar_color"] = new engine::platformTexture("textures/images/hud/pv.png", _renderer);
+	this->_textures["shield_bar"] = new engine::platformTexture("textures/images/hud/bar2.png", _renderer);
+	this->_textures["shield_bar_color"] = new engine::platformTexture("textures/images/hud/shield.png", _renderer);
 
 	this->_hud = new Hud(this);
 }
@@ -100,7 +100,7 @@ void	Game::onStart(void) {
 void		Game::onStop(void) {}
 
 void		Game::onPreRender(void) {
-	engine::SdlGameController::onPreRender();
+	engine::platformGameController::onPreRender();
 	this->_textures["background"]->render(
 		this->_engine.getScene()
 	);
