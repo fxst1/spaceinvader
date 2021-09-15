@@ -3,6 +3,10 @@
 # define MY_NCURSES_ENGINE
 # include <ncurses.h>
 # include "driver/ncurses/ascii.hh"
-using engine::platformGameController = engine::NCursesGameController;
-using engine::platformTexture = AsciiTexture;
+
+namespace engine {
+    typedef engine::NCursesGameController platformGameController;
+    typedef engine::AsciiTexture platformTexture;
+};
+
 #endif
