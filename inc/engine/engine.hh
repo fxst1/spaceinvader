@@ -67,10 +67,10 @@ namespace	engine {
 		private:
 
 			bool										_start;
-			std::map<std::string, engine::Texture*>		_textures;
 
 		protected:
 
+			std::map<std::string, engine::Texture*>		_textures;
 			engine::Engine								_engine;
 
 		public:
