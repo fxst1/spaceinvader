@@ -1,0 +1,6 @@
+Dockerfile*
+build.sh
+engine.log
+spaceinv
+obj
+srv
