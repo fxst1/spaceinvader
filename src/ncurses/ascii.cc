@@ -1,5 +1,4 @@
 #include "driver/ncurses/ascii.hh"
-# ifdef MY_NCURSES_ENGINE
 #  include <vector>
 
 AsciiTexture::AsciiTexture(void):
@@ -144,4 +143,3 @@ void				CompositeAsciiTexture::render(engine::Box const &src) const {
 	(void)_height;
 }
 
-#endif

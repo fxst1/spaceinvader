@@ -3,7 +3,7 @@ ENGINE=#SDL
 CC=g++ --std=c++14
 FILEEXT = cc
 INC = -I ./inc/
-FLAGS=-Wall -Wextra -Werror -g #-D SDL_ENGINE
+FLAGS=-Wall -Wextra -Werror -g
 
 OBJDIR := ./obj/
 
