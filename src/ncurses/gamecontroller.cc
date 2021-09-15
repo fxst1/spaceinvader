@@ -67,8 +67,8 @@ int			engine::NCursesGameController::getHeight(void) const {
 }
 
 void		engine::NCursesGameController::onPreRender(void) {
-	SDL_RenderClear(this->_renderer);
+	werase(this->_window);
 }
 void		engine::NCursesGameController::onPostRender(void) {
-	SDL_RenderPresent(this->_renderer);
+	wrefresh(this->_window);
 }
