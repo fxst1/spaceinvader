@@ -1,7 +1,7 @@
 #ifndef ENGINE_GC_HH
 # define ENGINE_GC_HH
 
-# include "driver/ncurses/NCursesDrv.hh"
+# include <ncurses.h>
 # include "engine/engine.hh"
 
 namespace	engine {
