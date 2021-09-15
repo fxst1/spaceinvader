@@ -6,20 +6,20 @@ Game::Game(void):
 	_oldscene(),
 	_current_wave(nullptr)
 {
-	this->allocTexture("background", "textures/images/bg5.png");
-	this->allocTexture("spaceship", "textures/images/DurrrSpaceShip.png");
-	this->allocTexture("bullet", "textures/images/bullet.png");
-	this->allocTexture("bullet2", "textures/images/bullet2.png");
-	this->allocTexture("star", "textures/images/star.png");
-	this->allocTexture("explosion", "textures/images/explosion/sheet.png");
-	this->allocTexture("spider", "textures/images/enemy.png");
+	this->allocTexture("background", "bg5");
+	this->allocTexture("spaceship", "DurrrSpaceShip");
+	this->allocTexture("bullet", "bullet");
+	this->allocTexture("bullet2", "bullet2");
+	this->allocTexture("star", "star");
+	this->allocTexture("explosion", "sheet");
+	this->allocTexture("spider", "enemy");
 
-	this->allocTexture("player_shield", "textures/images/shield.png");
+	this->allocTexture("player_shield", "shield");
 
-	this->allocTexture("pv_bar", "textures/images/hud/bar1.png");
-	this->allocTexture("pv_bar_color", "textures/images/hud/pv.png");
-	this->allocTexture("shield_bar", "textures/images/hud/bar2.png");
-	this->allocTexture("shield_bar_color", "textures/images/hud/shield.png");
+	this->allocTexture("pv_bar", "hud/bar1");
+	this->allocTexture("pv_bar_color", "hud/pv");
+	this->allocTexture("shield_bar", "hud/bar2");
+	this->allocTexture("shield_bar_color", "hud/shield");
 
 	this->_hud = new Hud(this);
 }

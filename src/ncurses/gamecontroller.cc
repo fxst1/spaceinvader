@@ -19,8 +19,12 @@ engine::NCursesGameController::NCursesGameController(int width, int height, int 
 }
 engine::NCursesGameController::~NCursesGameController(void){}
 
+std::string         engine::NCursesGameController::getTexturePath() const {
+    return ("/textures/ascii/");
+}
+
 engine::Texture*    engine::NCursesGameController::allocTexture(std::string const & name, std::string const & path) {
-    this->_textures[name] = AsciiTexture::loadFromFile(path);
+    this->_textures[name] = AsciiTexture::loadFromFile(this->getTexturePath() + path);
     return (this->_textures[name]);
 }
 

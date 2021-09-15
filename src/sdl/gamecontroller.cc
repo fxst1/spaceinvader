@@ -27,8 +27,12 @@ engine::SdlGameController::SdlGameController(int width, int height, int fps):
 }
 engine::SdlGameController::~SdlGameController(void){}
 
+std::string         engine::SdlGameController::getTexturePath() const {
+    return ("/textures/images/");
+}
+
 engine::Texture*    engine::SdlGameController::allocTexture(std::string const & name, std::string const & path) {
-    this->_textures[name] = AsciiTexture::loadFromFile(path);
+    this->_textures[name] = new engine::SdlTexture(this->getTexturePath() + path + ".png", _renderer);
     return (this->_textures[name]);
 }
 

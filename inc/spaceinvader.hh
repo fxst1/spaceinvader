@@ -8,6 +8,11 @@
 # include <random>
 
 # include "engine/MyEngine.hh"
+# ifdef SDL_ENGINE
+#  define TEXTUREPATH "ascii"
+# else
+#  define TEXTUREPATH "images"
+# endif
 
 class	Hud;
 class	Wave;
