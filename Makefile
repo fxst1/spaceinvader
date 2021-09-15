@@ -6,18 +6,20 @@ INC = -I ./inc/
 FLAGS=-Wall -Wextra -Werror -g #-D SDL_ENGINE
 
 OBJDIR := ./obj/
-SRC := $(filter-out $(filter %.$(FILEEXT), $(shell find ./src -type f)))
+
+DRV_SDL = $(filter %.$(FILEEXT), $(shell find ./src/sdl -type f)
+DRV_NCURSES = $(filter %.$(FILEEXT), $(shell find ./src/ncurses -type f)
+SRC_GAME := $(filter-out $(DRV_SDL) $(DRV_NCURSES) , $(filter %.$(FILEEXT), $(shell find ./src -type f)))
 OBJ = $(addprefix $(OBJDIR),$(SRC:.$(FILEEXT)=.o))
 TARGET = spaceinv
 
-#LIB = -lncurses
 
 ifeq ($(ENGINE),SDL)
     FLAGS += -D SDL_ENGINE
-    SRC := $(filter-out driver/ncurses $(filter %.$(FILEEXT), $(shell find ./src -type f)))
+    SRC := $(SRC_GAME) $(DRV_SDL)
     LIB = -lSDL2 -lSDL2_image
 else
-    SRC := $(filter-out driver/sdl $(filter %.$(FILEEXT), $(shell find ./src -type f)))
+    SRC := $(SRC_GAME) $(DRV_NCURSES)
     LIB = -lncurses
 endif
 
