@@ -171,14 +171,14 @@ void		SpaceShip::tick(engine::Engine & e) {
 //	std::cout << "Test " << std::dec << c << std::endl;
 
 	if (c == KEY_UP)
-		this->moveRel(0, -0.9 * e._delta_time);
+		this->moveRel(0, e._delta_time);
 	else if (c == KEY_DOWN)
-		this->moveRel(0, 0.9 * e._delta_time);
+		this->moveRel(0, -e._delta_time);
 
 	if (c == KEY_RIGHT)
-		this->moveRel(0.9 * e._delta_time, 0);
+		this->moveRel(e._delta_time, 0);
 	else if (c == KEY_LEFT)
-		this->moveRel(-0.9 * e._delta_time, 0);
+		this->moveRel(-e._delta_time, 0);
 
 	if (c == ' ') {
 		if (_last_shoot <= 0) {

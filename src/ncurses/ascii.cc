@@ -113,7 +113,7 @@ void		AsciiTexture::render(engine::Box const &src) {
 			if (p->value != 0 && p->value != '\n') {
 				attron(COLOR_PAIR(p->fgcolor));
 				mvaddch((int)y + src.getY(), (int)x + src.getX(), (int)p->value);
-				attron(COLOR_PAIR(p->fgcolor));
+				attroff(COLOR_PAIR(p->fgcolor));
 			}
 			p++;
 		}
@@ -138,9 +138,8 @@ void				CompositeAsciiTexture::useTexture(AsciiTexture * texture) {
 	this->_textures.push_back(texture);
 }
 
-void				CompositeAsciiTexture::render(engine::Box const &src) const {
+void				CompositeAsciiTexture::render(engine::Box const &src) {
 	(void)src;
 	(void)_width;
 	(void)_height;
 }
-

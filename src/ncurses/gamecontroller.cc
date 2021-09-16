@@ -8,18 +8,17 @@ engine::NCursesGameController::NCursesGameController(int width, int height, int 
 	_height(height),
 	_fps(fps)
 {
-	
-
 	getmaxyx(stdscr, height, width);
 
     _window = stdscr;//newwin(height, width, 0, 0);
     //box(_window, 0, 0);
-    refresh();
+    erase();
 
 	//getmaxyx(stdscr, height, width);
 
 	this->_engine.getScene().move(0, 0);
 	this->_engine.getCamera().move(0, 0);
+
 	this->_engine.getScene().resize(width + 1, height + 1);
 	this->_engine.getCamera().resize(width, height);
 
@@ -53,7 +52,7 @@ void	engine::NCursesGameController::loop(void) {
 			if (delta_time > minimum_fps_delta_time)
 				delta_time = minimum_fps_delta_time;
 
-			_engine._delta_time = delta_time <= 1 ? 1 : delta_time;
+			_engine._delta_time = delta_time < 1 ? 1 : delta_time;
 
 			int c = getch();
 			if (c == '\n') {
@@ -65,7 +64,7 @@ void	engine::NCursesGameController::loop(void) {
 
 			last_game_step = now;
 		} else {
-			usleep(1000);
+			usleep(1);
 		}
 	}
 }

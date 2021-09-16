@@ -63,7 +63,7 @@ class	CompositeAsciiTexture : public engine::Texture {
 		~CompositeAsciiTexture(void);
 
 		void			useTexture(AsciiTexture * texture);
-		void			render(engine::Box const & b) const;
+		void			render(engine::Box const & b);
 
 	private:
 		std::list<AsciiTexture*>	_textures;
