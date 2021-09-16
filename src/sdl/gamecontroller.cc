@@ -1,4 +1,5 @@
 #include "driver/SDL/SdlGameController.hh"
+#include "driver/SDL/ImgTexture.hh"
 
 engine::SdlGameController::SdlGameController(int width, int height, int fps):
 	engine::GameController(),

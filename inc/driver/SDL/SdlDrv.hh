@@ -6,7 +6,7 @@
 # include "driver/SDL/ImgTexture.hh"
 # include "driver/SDL/SdlGameController.hh"
 namespace engine {
-    typedef engine::SdlGameController engine::platformGameController;
-    typedef engine::SdlTexture engine::platformTexture;
+    typedef engine::SdlGameController platformGameController;
+    typedef engine::SdlTexture platformTexture;
 };
 #endif
