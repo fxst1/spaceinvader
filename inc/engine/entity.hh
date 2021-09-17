@@ -15,6 +15,7 @@ namespace engine {
 		private:
 
 			engine::Texture*		_texture;
+			engine::Box			_viewport;
 
 		public:
 
@@ -34,6 +35,7 @@ namespace engine {
 
 			void					setTexture(engine::Texture* t);
 			engine::Texture*		getTexture(void);
+			engine::Box&			getViewport(void);
 	};
 
 };

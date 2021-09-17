@@ -9,6 +9,7 @@ engine::Engine::Engine(void) :
 	_log()
 {
 	_log.open("engine.log", std::ofstream::out | std::ofstream::trunc);
+	_viewport = engine::Box(1, 1, 1, 1);
 }
 
 engine::Engine::~Engine(void) {
@@ -58,6 +59,19 @@ engine::Box&		engine::Engine::getScene(void) {
 
 engine::Box&		engine::Engine::getCamera(void) {
 	return (this->_camera);
+}
+
+void			engine::Engine::setViewport(engine::Box const viewport) {
+	_viewport = viewport;
+}
+
+int			engine::Engine::calcViewport(engine::Box& b) const {
+	b.setX(b.getX() * _viewport.getX());
+	b.setY(b.getY() * _viewport.getY());
+	b.setW(b.getW() * _viewport.getW());
+	b.setX(b.getH() * _viewport.getH());
+
+	return (0);
 }
 
 double	engine::Engine::getDeltaTime(double factor) const {
@@ -126,6 +140,7 @@ void	engine::Engine::tick(void) {
 
 		//index++;
 
+		this->calcViewport( e->getViewport() );
 		if (e->getTexture() != nullptr) {
 			printer.insert({e->getZ(), e});
 		}
@@ -133,7 +148,7 @@ void	engine::Engine::tick(void) {
 
 	this->_game->onPreRender();
 	std::for_each(printer.begin(), printer.end(), [&](const auto& n) {
-		n.second->getTexture()->render(*n.second);
+		n.second->getTexture()->render( n.second->getViewport() );
 	});
 	this->_game->onPostRender();
 }

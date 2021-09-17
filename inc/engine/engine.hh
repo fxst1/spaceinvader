@@ -36,6 +36,7 @@ namespace	engine {
 
 			engine::GameController*					_game;
 
+			engine::Box					_viewport;
 		public:
 
 			std::ofstream					_log;
@@ -60,6 +61,9 @@ namespace	engine {
 
 			engine::Box&				getScene(void);
 			engine::Box&				getCamera(void);
+			void				setViewport(engine::Box const b);
+
+			int					calcViewport(engine::Box &b) const;
 	};
 
 

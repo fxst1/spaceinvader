@@ -4,7 +4,8 @@
 engine::Entity::Entity(void):
 	engine::Box(),
 	engine::Values(),
-	_texture(nullptr)
+	_texture(nullptr),
+	_viewport()
 {}
 
 engine::Entity::~Entity(void){}
@@ -14,6 +15,10 @@ void	engine::Entity::setTexture(engine::Texture * texture) {
 }
 engine::Texture*	engine::Entity::getTexture(void) {
 	return (this->_texture);
+}
+
+engine::Box&		engine::Entity::getViewport(void) {
+	return (this->_viewport);
 }
 
 std::string	engine::Entity::ID(void) const {
