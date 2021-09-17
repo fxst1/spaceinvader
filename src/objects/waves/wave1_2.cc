@@ -28,7 +28,7 @@ void	MoveFunc_Wave1_2::operator()(engine::Entity *it, engine::Engine & e) {
 
 	if (_phase == 1) {
 
-//		std::cout << "1>" << _angle << " = " << (x_c + (400 * sin(_angle))) << ", " << y_c + (400 * cos(_angle)) << std::endl;
+		std::cerr << "1>" << _angle << " = " << (x_c + (400 * sin(_angle))) << ", " << y_c + (400 * cos(_angle)) << std::endl;
 
 		it->move(
 			x_c + (200 * sin(_angle)),

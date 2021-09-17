@@ -1,7 +1,9 @@
 .*
 Dockerfile*
 build.sh
-engine.log
+*.log
+*.out
+*.err
 spaceinv
 obj
 srv

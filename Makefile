@@ -1,4 +1,4 @@
-ENGINE=SDL
+ENGINE=#SDL
 
 CC=g++ --std=c++14
 FILEEXT = cc

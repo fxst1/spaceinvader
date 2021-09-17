@@ -15,7 +15,7 @@ AsciiTexture::~AsciiTexture(void)
 
 AsciiTexture*		AsciiTexture::loadFromFile(std::string const &filename) {
 	std::ifstream	input(filename);
-	AsciiTexture* ret = new AsciiTexture();
+	AsciiTexture* ret = nullptr;
 
 	if (input.is_open()) {
 
@@ -68,6 +68,7 @@ AsciiTexture*		AsciiTexture::loadFromFile(std::string const &filename) {
 		/*************
 		**	color fg
 		**************/
+
 		buf = pixels;
 		for (std::size_t i = n_line; i < (std::size_t)(n_line * 2); i++) {
 
@@ -93,6 +94,8 @@ AsciiTexture*		AsciiTexture::loadFromFile(std::string const &filename) {
 		ret->_bufsize = n_line * n_col;
 		ret->_w = n_col;
 		ret->_h = n_line;
+		ret->_filename = filename;
+//		std::cout << filename << ": " << std::dec << ret->_w << ", " << std::dec << ret->_h << std::endl;
 
 	} else {
 		std::cerr << "ERROR" << std::endl;
@@ -108,16 +111,18 @@ void		AsciiTexture::setMap(AsciiTexture::ColorMap &map) {
 void		AsciiTexture::render(engine::Box const &src) {
 	AsciiTexture::pix_t		*p = this->_buf;
 
+	//exit(EXIT_FAILURE);
+	//std::cout << _filename << ": " << std::dec << _w << ", " << std::dec << _h << std::endl;
 	for (std::size_t y = 0; y < (std::size_t)this->_h; y++) {
 		for (std::size_t x = 0; x < (std::size_t)this->_w; x++) {
 			if (p->value != 0 && p->value != '\n') {
-				attron(COLOR_PAIR(p->fgcolor));
+				//attron(COLOR_PAIR(p->fgcolor));
 				mvaddch((int)y + src.getY(), (int)x + src.getX(), (int)p->value);
-				attroff(COLOR_PAIR(p->fgcolor));
+				//attroff(COLOR_PAIR(p->fgcolor));
 			}
 			p++;
 		}
-		p++;
+		//p++;
 	}
 }
 

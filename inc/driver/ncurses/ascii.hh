@@ -54,7 +54,7 @@ class	AsciiTexture: public engine::Texture {
 		AsciiTexture::pix_t*		_buf;
 		std::size_t					_bufsize;
 		AsciiTexture::ColorMap		_map;
-
+		std::string			_filename;
 };
 
 class	CompositeAsciiTexture : public engine::Texture {

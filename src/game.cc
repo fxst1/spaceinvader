@@ -145,16 +145,19 @@ void		BackgroundTexture::onDestroy(engine::Engine & engine) {
 Explosion::Explosion(engine::Texture *t):
 	engine::Animation(false, t)
 {
+#ifdef SDL_ENGINE
 	for (int x = 0; x <= 1024; x += 128) {
 
 		for (int y = 0; y <= 1024; y += 128) {
 			engine::Box b;
 			b.move(y, x);
+		//	if (b.getW() >= 128)
 			b.resize(128, 128);
 			this->addTexture(10, b);
 		}
 
 	}
+#endif
 }
 Explosion::~Explosion(void)
 {}
@@ -167,14 +170,16 @@ ExplosionEntity::ExplosionEntity(Game *g, engine::Box const & parent):
 {
 	_animation = new Explosion(g->getTexture("explosion"));
 	this->setTexture( _animation );
-
+#ifdef SDL_ENGINE
 	this->setW(128);
 	this->setH(128);
-
+#endif
 	this->center(parent);
 
+#ifdef SDL_ENGINE
 	_animation->resize(128, 128);
 	_animation->start();
+#endif
 }
 ExplosionEntity::~ExplosionEntity(void)
 {
