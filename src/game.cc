@@ -38,6 +38,12 @@ Hud*	Game::getHud(void) {
 	return (_hud);
 }
 
+void	Game::onKey(engine::KeyManager::KeyEvent const &e) {
+	if (e.getName() == "\n") {
+		this->stop();
+	}
+}
+
 void	Game::tick(void) {
 	this->populateBackground();
 

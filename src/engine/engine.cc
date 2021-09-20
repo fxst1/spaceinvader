@@ -140,7 +140,7 @@ void	engine::Engine::tick(void) {
 
 		//index++;
 
-		this->calcViewport( e->getViewport() );
+		//this->calcViewport( e->getViewport() );
 		if (e->getTexture() != nullptr) {
 			printer.insert({e->getZ(), e});
 		}
@@ -148,7 +148,7 @@ void	engine::Engine::tick(void) {
 
 	this->_game->onPreRender();
 	std::for_each(printer.begin(), printer.end(), [&](const auto& n) {
-		n.second->getTexture()->render( n.second->getViewport() );
+		n.second->getTexture()->render( *n.second );
 	});
 	this->_game->onPostRender();
 }

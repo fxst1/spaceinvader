@@ -15,6 +15,7 @@
 # include <ratio>
 
 # include "engine/entity.hh"
+# include "engine/keymanager.hh"
 
 namespace	engine {
 
@@ -96,9 +97,11 @@ namespace	engine {
 			virtual void		onStart(void) = 0;
 			virtual void		onStop(void) = 0;
 
+			virtual engine::KeyManager&	getKeyManager(void) = 0;
+
 			virtual engine::Texture*    allocTexture(std::string const &name, std::string const &path) = 0;
-            virtual std::string         getTexturePath(void) const = 0;
-            engine::Texture*            getTexture(std::string const & name);
+			virtual std::string         getTexturePath(void) const = 0;
+        		engine::Texture*            getTexture(std::string const & name);
 	};
 };
 

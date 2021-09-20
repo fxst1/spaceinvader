@@ -4,6 +4,7 @@
 
 engine::NCursesGameController::NCursesGameController(int width, int height, int fps):
 	engine::GameController(),
+	engine::NCursesKeyManager(),
 	_width(width),
 	_height(height),
 	_fps(fps)
@@ -22,8 +23,15 @@ engine::NCursesGameController::NCursesGameController(int width, int height, int 
 	this->_engine.getScene().resize(width + 1, height + 1);
 	this->_engine.getCamera().resize(width, height);
 
+	this->_engine.setViewport(this->_engine.getCamera());
+
 }
+
 engine::NCursesGameController::~NCursesGameController(void){}
+
+engine::KeyManager&	engine::NCursesGameController::getKeyManager(void) {
+	return (*this);
+}
 
 std::string         engine::NCursesGameController::getTexturePath() const {
     return ("textures/ascii/");

@@ -4,9 +4,10 @@
 # include <ncurses.h>
 # include "engine/engine.hh"
 # include "driver/ncurses/ascii.hh"
+# include "driver/ncurses/keymanager.hh"
 
 namespace	engine {
-	class	NCursesGameController: public GameController {
+	class	NCursesGameController: public GameController, public engine::NCursesKeyManager {
 		private:
 			int				_width;
 			int				_height;
@@ -24,11 +25,13 @@ namespace	engine {
 		    WINDOW*         _window;
 
 			void 			loop(void);
-			virtual void	onPreRender(void);
-			virtual void	onPostRender(void);
+			virtual void		onPreRender(void);
+			virtual void		onPostRender(void);
 
-            virtual engine::Texture     *allocTexture(std::string const &name, std::string const &path);
-            virtual std::string         getTexturePath(void) const;
+			engine::KeyManager&	getKeyManager(void);
+
+            		virtual engine::Texture     *allocTexture(std::string const &name, std::string const &path);
+            		virtual std::string         getTexturePath(void) const;
 	};
 };
 

@@ -1,14 +1,8 @@
 #ifndef SPACEINVADER_HH
 # define SPACEINVADER_HH
 
-# ifdef SDL_ENGINE
-#  define WIDTH 1200
-#  define HEIGHT 800
-# else
-#  include <ncurses.h>
-#  define WIDTH COLS
-#  define HEIGHT LINES
-#endif
+# define WIDTH 1200
+# define HEIGHT 800
 
 # include <stack>
 # include <map>
@@ -50,6 +44,8 @@ class	Game: public engine::platformGameController {
 
 		virtual void			onStart(void);
 		virtual void			onStop(void);
+
+		virtual void			onKey(engine::KeyManager::KeyEvent const & e);
 };
 
 class	Hud {
